@@ -1,0 +1,56 @@
+@import "shared/colors.rasi"
+@import "shared/fonts.rasi"
+
+configuration {
+    font: "Caskaydia Mono Nerd 13";
+}
+
+* {
+    background-color:   @background;
+    text-color:         @foreground;
+    border-color:       @background-alt;
+}
+
+window {
+    background-color:   @background;
+    border:             1px;
+    border-color:       @background-alt;
+    border-radius:      12px;
+    padding:            12px;
+    width:              600px;
+}
+
+mainbox {
+    background-color:   transparent;
+    children:           [ listview ];
+    spacing:            8px;
+}
+
+listview {
+    background-color:   transparent;
+    lines:              6;
+    spacing:            4px;
+    scrollbar:          false;
+}
+
+element {
+    background-color:   transparent;
+    border-radius:      6px;
+    padding:            8px 12px;
+    text-color:         @foreground;
+}
+
+element selected {
+    background-color:   @selected;
+    text-color:         @background;
+}
+
+element alternate {
+    background-color:   transparent;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+}

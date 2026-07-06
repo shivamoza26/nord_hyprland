@@ -1,0 +1,83 @@
+@import "~/.config/rofi/shared/colors.rasi"
+@import "~/.config/rofi/shared/fonts.rasi"
+
+configuration {
+    show-icons: true;
+    display-dmenu: "Wallpaper";
+}
+
+* {
+    font: "Caskaydia Mono Nerd 13";
+    border-color: @selected;
+    text-color: @foreground;
+    background-color: transparent;
+}
+
+window {
+    width: 92%;
+    border: 2px;
+    border-radius: 12px;
+    padding: 14px;
+    background-color: @background;
+}
+
+mainbox {
+    spacing: 8px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: @background-alt;
+    border-radius: 8px;
+    padding: 10px;
+    spacing: 10px;
+}
+
+prompt {
+    text-color: @selected;
+    str: "Pick";
+}
+
+entry {
+    text-color: @foreground;
+    placeholder: "Search wallpaper...";
+    placeholder-color: rgba(229, 233, 240, 60%);
+}
+
+listview {
+    layout: vertical;
+    lines: 3;
+    columns: 4;
+    fixed-height: true;
+    fixed-columns: true;
+    fixed-lines: true;
+    dynamic: false;
+    scrollbar: true;
+    spacing: 6px;
+}
+
+element {
+    orientation: vertical;
+    children: [element-icon, element-text];
+    spacing: 8px;
+    background-color: @background-alt;
+    text-color: @foreground;
+    border-radius: 8px;
+    padding: 8px;
+    width: 140px;
+}
+
+element selected {
+    background-color: @selected;
+    text-color: @background;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+element-icon {
+    size: 84px;
+    background-color: transparent;
+}

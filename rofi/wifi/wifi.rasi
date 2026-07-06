@@ -1,0 +1,84 @@
+@import "shared/colors.rasi"
+@import "shared/fonts.rasi"
+
+configuration {
+    font: "Caskaydia Mono Nerd 13";
+    show-icons: false;
+}
+
+* {
+    background-color:   @background;
+    text-color:         @foreground;
+    border-color:       @background-alt;
+}
+
+window {
+    background-color:   @background;
+    border:             1px;
+    border-color:       @background-alt;
+    border-radius:      12px;
+    padding:            12px;
+    width:              320px;
+}
+
+mainbox {
+    background-color:   transparent;
+    children:           [ inputbar, listview ];
+    spacing:            8px;
+}
+
+inputbar {
+    background-color:   @background-alt;
+    border-radius:      8px;
+    padding:            8px 12px;
+    children:           [ prompt, textbox-prompt-colon, entry ];
+}
+
+prompt {
+    background-color:   transparent;
+    text-color:         @selected;
+    padding:            0 4px 0 0;
+}
+
+textbox-prompt-colon {
+    background-color:   transparent;
+    text-color:         @background-alt;
+    expand:             false;
+    str:                " ";
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @foreground;
+    placeholder-color:  @background-alt;
+    placeholder:        "Search...";
+}
+
+listview {
+    background-color:   transparent;
+    lines:              6;
+    spacing:            4px;
+    scrollbar:          false;
+}
+
+element {
+    background-color:   transparent;
+    border-radius:      6px;
+    padding:            8px 12px;
+    text-color:         @foreground;
+}
+
+element selected {
+    background-color:   @selected;
+    text-color:         @background;
+}
+
+element alternate {
+    background-color:   transparent;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+}

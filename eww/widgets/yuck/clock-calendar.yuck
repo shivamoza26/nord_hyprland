@@ -1,0 +1,80 @@
+;; Variables
+(defpoll time :interval "1s"
+  "date '+%H:%M'")
+
+(defpoll date :interval "1h"
+  "date '+%A, %d %B'")
+
+(defpoll month :interval "1h"
+  "date '+%B'")
+
+(defpoll year :interval "1h"
+  "date '+%Y'")
+
+(defpoll calendar :interval "1h"
+  "~/.config/eww/scripts/calendar.sh")
+
+;; Window — anchored top-right, offset to sit just below the clock in waybar
+;; Waybar height=42, margin-top=6, margin-right=10 → y=58 aligns perfectly below bar
+(defwindow clock-calendar
+  :monitor 0
+  :geometry (geometry :x "10px"
+                      :y "58px"
+                      :anchor "top right")
+  :stacking "overlay"
+  :windowtype "dialog"
+  :wm-ignore false
+  (clock-calendar-widget))
+
+;; Main Widget
+(defwidget clock-calendar-widget []
+  (box :class "clock-calendar-container"
+       :orientation "v"
+       :space-evenly false
+    (clock-display)
+    (date-display)
+    (calendar-nav)
+    (calendar-grid)))
+
+;; Clock Display
+(defwidget clock-display []
+  (box :class "clock"
+       :orientation "h"
+       :space-evenly false
+       :spacing 0
+    (label :class "time"
+           :text time)))
+
+;; Date Display
+(defwidget date-display []
+  (box :class "date"
+    (label :text date)))
+
+;; Calendar Navigation
+(defwidget calendar-nav []
+  (box :class "cal-nav"
+       :orientation "h"
+       :space-evenly false
+    (button :class "nav-btn" :onclick "echo 'prev'" "")
+    (label :class "nav-month" :text month)
+    (button :class "nav-btn" :onclick "echo 'next'" "")
+    (box :hexpand true)
+    (button :class "nav-btn" :onclick "echo 'prev-year'" "")
+    (label :class "nav-year" :text year)
+    (button :class "nav-btn" :onclick "echo 'next-year'" "")))
+
+;; Calendar Grid
+(defwidget calendar-grid []
+  (box :class "calendar"
+       :orientation "v"
+       :space-evenly false
+    (box :class "cal-header"
+         :orientation "h"
+      (label :class "cal-day-name" :text "Sun")
+      (label :class "cal-day-name" :text "Mon")
+      (label :class "cal-day-name" :text "Tue")
+      (label :class "cal-day-name" :text "Wed")
+      (label :class "cal-day-name" :text "Thu")
+      (label :class "cal-day-name" :text "Fri")
+      (label :class "cal-day-name" :text "Sat"))
+    (literal :content calendar)))

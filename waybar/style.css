@@ -1,0 +1,239 @@
+/* ─────────────────────────────────────────────────────────
+   Nord Waybar Theme — Separated Pills + Consistent Icons
+   Nord Palette:
+     Polar Night:  #2e3440  #3b4252  #434c5e  #4c566a
+     Snow Storm:   #d8dee9  #e5e9f0  #eceff4
+     Frost:        #8fbcbb  #88c0d0  #81a1c1  #5e81ac
+     Aurora:       #bf616a  #d08770  #ebcb8b  #a3be8c  #b48ead
+   ───────────────────────────────────────────────────────── */
+
+* {
+  font-family: "CaskaydiaMono Nerd Font", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #d8dee9;
+}
+
+/* ─── BAR ITSELF ────────────────────────────────────────── */
+window#waybar {
+  background-color: transparent;
+  color: #eceff4;
+}
+
+/* ─── THREE PILLS ───────────────────────────────────────── */
+.modules-left {
+  background-color: rgba(46, 52, 64, 0.92);
+  border-radius: 12px;
+  border: 1px solid #4c566a;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+.modules-center {
+  background-color: rgba(46, 52, 64, 0.92);
+  border-radius: 12px;
+  border: 1px solid #4c566a;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+.modules-right {
+  background-color: rgba(46, 52, 64, 0.92);
+  border-radius: 12px;
+  border: 1px solid #4c566a;
+  margin: 0 4px;
+  padding: 0 4px;
+}
+
+/* ─── TOOLTIP ───────────────────────────────────────────── */
+tooltip {
+  background-color: #2e3440;
+  border: 1px solid #4c566a;
+  border-radius: 8px;
+  color: #eceff4;
+}
+
+tooltip label {
+  color: #eceff4;
+  background-color: transparent;
+}
+
+/* ─── COMMON MODULE STYLE ───────────────────────────────── */
+#custom-swaync,
+#custom-logo,
+#custom-music,
+#workspaces,
+#window,
+#custom-cpu-expanded,
+#network,
+#battery,
+#clock {
+  padding: 4px 10px;
+  margin: 3px 2px;
+  border-radius: 8px;
+  background: transparent;
+  background-color: transparent;
+  color: #d8dee9;
+  transition: all 0.2s ease;
+  box-shadow: none;
+}
+
+/* ─── LOGO ──────────────────────────────────────────────── */
+#custom-logo {
+  font-size: 18px;
+  color: #5e81ac;
+  padding: 4px 14px;
+  background-color: transparent;
+  background-image: none;
+  min-width: unset;
+}
+
+#custom-logo:hover {
+  background-color: #434c5e;
+  color: #81a1c1;
+  border-radius: 10px;
+}
+/* ─── WORKSPACES ────────────────────────────────────────── */
+#workspaces {
+  background-color: transparent;
+  padding: 0 4px;
+}
+
+#workspaces button {
+  padding: 4px 10px;
+  margin: 3px 2px;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #4c566a;
+  min-width: 28px;
+  transition: all 0.15s ease;
+  box-shadow: none;
+}
+
+#workspaces button:hover {
+  background-color: #434c5e;
+  color: #88c0d0;
+}
+
+#workspaces button.active {
+  background-color: #5e81ac;
+  color: #eceff4;
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  background-color: #bf616a;
+  color: #eceff4;
+}
+
+/* ─── NOTIFFICATION ───────────────────────────────────────────────── */
+#custom-swaync {
+  color: #8fbcbb;
+  background-color: transparent;
+}
+
+/* ─── CPU ───────────────────────────────────────────────── */
+#custom-cpu-expanded {
+  color: #8fbcbb;
+  background-color: transparent;
+}
+
+#custom-cpu-expanded:hover {
+  background-color: #434c5e;
+}
+
+#custom-cpu-expanded.warning {
+  color: #ebcb8b;
+}
+
+#custom-cpu-expanded.critical {
+  color: #bf616a;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ─── NETWORK ───────────────────────────────────────────── */
+#network {
+  color: #81a1c1;
+  background-color: transparent;
+}
+
+#network:hover {
+  background-color: #434c5e;
+}
+
+#network.disconnected {
+  color: #4c566a;
+}
+
+/* ─── BATTERY ───────────────────────────────────────────── */
+#battery {
+  color: #a3be8c;
+  background-color: transparent;
+}
+
+#battery:hover {
+  background-color: #434c5e;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #8fbcbb;
+}
+
+#battery.good {
+  color: #a3be8c;
+}
+
+#battery.warning:not(.charging) {
+  color: #ebcb8b;
+}
+
+#battery.critical:not(.charging) {
+  color: #bf616a;
+  animation: blink 1s steps(1) infinite;
+}
+
+/* ─── CLOCK ─────────────────────────────────────────────── */
+#clock {
+  color: #81a1c1;
+  margin-right: 4px;
+  background-color: transparent;
+}
+
+#clock:hover {
+  background-color: #434c5e;
+  color: #88c0d0;
+}
+/*─── SEPRATOR ─────────────────────────────────────────────── */
+#custom-separator {
+  color: #4c566a;
+  padding: 0 2px;
+  margin: 3px 0;
+}
+/* ─── BLINK ANIMATION ───────────────────────────────────── */
+@keyframes blink {
+  to {
+    background-color: #bf616a;
+    color: #eceff4;
+  }
+}
+
+/*─── MUSIC ─────────────────────────────────────────────── */
+#custom-music {
+  color: #88c0d0;
+  background-color: transparent;
+  padding: 4px 10px;
+  margin: 3px 2px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+#custom-music:hover {
+  background-color: #434c5e;
+  color: #8fbcbb;
+}

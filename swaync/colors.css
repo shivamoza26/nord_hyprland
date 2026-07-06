@@ -1,0 +1,36 @@
+/* -------------------- BASE -------------------- */
+@define-color background #2E3440;
+@define-color foreground #ECEFF4;
+
+/* -------------------- NORD -------------------- */
+@define-color nord1 #3B4252;
+@define-color nord2 #434C5E;
+@define-color nord3 #4C566A;
+
+@define-color nord7 #8FBCBB;
+@define-color nord8 #88C0D0;
+@define-color nord9 #81A1C1;
+@define-color nord10 #5E81AC;
+
+@define-color nord11 #BF616A;
+@define-color nord12 #D08770;
+@define-color nord13 #EBCB8B;
+@define-color nord14 #A3BE8C;
+@define-color nord15 #B48EAD;
+
+/* -------------------- REQUIRED MAPPINGS -------------------- */
+@define-color color1 @nord1;
+@define-color color2 @nord11;
+@define-color color3 @nord9;
+@define-color color4 @nord8;
+@define-color color5 @nord7;
+@define-color color6 @nord10;
+
+/* ---- FIX FOR ERROR ---- */
+@define-color background-sec @nord2;
+
+/* ---- OPTIONAL (prevents future errors) ---- */
+@define-color text @foreground;
+@define-color hover @color5;
+@define-color selected @color3;
+@define-color urgent @color2;

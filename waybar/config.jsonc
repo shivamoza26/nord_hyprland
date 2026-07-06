@@ -1,0 +1,122 @@
+{
+"layer": "top",
+"position": "top",
+"height": 42,
+"spacing": 4,
+"margin-top": 6,
+"margin-left": 10,
+"margin-right": 10,
+
+"modules-left": [
+"custom/logo",
+"custom/separator",
+"custom/music"
+],
+
+"modules-center": [
+"hyprland/workspaces",
+"custom/separator",
+"custom/swaync"
+],
+
+"modules-right": [
+"network",
+"custom/cpu-expanded",
+"battery",
+"clock"
+],
+
+"custom/separator": {
+"format": "|",
+"interval": "once",
+"tooltip": false
+},
+
+"custom/logo": {
+"format": "󰣇",
+"tooltip": false,
+"on-click": "bash /home/shivmexe/.config/eww/scripts/toggle_control_hub.sh"
+},
+
+"custom/music": {
+"format": "<span color='#cba6f7'></span>  {}",
+"escape": true,
+"interval": 5,
+"tooltip": false,
+"exec": "bash /home/shivmexe/.config/eww/scripts/toggle_media.sh --label",
+"on-click": "bash /home/shivmexe/.config/eww/scripts/toggle_media.sh",
+"max-length": 50
+},
+
+"hyprland/workspaces": {
+"format": "{name}",
+"on-click": "activate",
+"sort-by-number": true
+},
+
+"custom/swaync": {
+"tooltip":true,
+"format": "{icon} {text}",
+"format-icons": {
+"notification": "<span foreground='red'><sup></sup></span>",
+"none": "",
+"dnd-notification": "<span foreground='red'><sup></sup></span>",
+"dnd-none": "",
+"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+"inhibited-none": "",
+"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+"dnd-inhibited-none": ""
+},
+"return-type": "json",
+"exec-if": "which swaync-client",
+"exec": "swaync-client -swb",
+"on-click": "sleep 0.1 && swaync-client -t -sw",
+"on-click-right": "swaync-client -d -sw",
+"escape": true
+},
+
+"network": {
+"format-wifi": "󰤨 {essid}",
+"format-ethernet": "󰈀 {ipaddr}",
+"format-disconnected": "󰤭 Offline",
+"tooltip-format-wifi": "SSID: {essid}\nSignal: {signalStrength}%\nIP: {ipaddr}\nGateway: {gwaddr}",
+"tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}",
+"tooltip-format-disconnected": "No network connection",
+"on-click": "bash ~/.config/rofi/wifi/network-menu.sh",
+"interval": 5
+},
+
+"custom/cpu-expanded": {
+"exec": "~/.config/waybar/scripts/cpu-expanded.sh",
+"return-type": "json",
+"interval": 3,
+"format": "{}",
+"tooltip": false,
+"on-click": "bash ~/.config/waybar/scripts/toggle-cpu-details.sh"
+},
+
+"battery": {
+"bat": "BAT1",
+"adapter": "ACAD",
+"interval": 30,
+"states": {
+"good": 95,
+"warning": 30,
+"critical": 15
+},
+"format": "{icon} {capacity}%",
+"format-charging": "󰂄 {capacity}%",
+"format-plugged": "󰚥 {capacity}%",
+"format-full": "󰁹 Full",
+"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+"tooltip": false
+},
+
+"clock": {
+"interval": 60,
+"format": "<span color='#89b4fa'>󰥔</span> {:%H:%M}",
+"max-length": 25,
+"tooltip": false,
+"on-click": "bash /home/shivmexe/.config/eww/scripts/toggle_calendar.sh"
+}
+}

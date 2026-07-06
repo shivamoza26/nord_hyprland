@@ -1,0 +1,125 @@
+/* Nord Palette
+   Polar Night:  #2e3440  #3b4252  #434c5e  #4c566a
+   Snow Storm:   #d8dee9  #e5e9f0  #eceff4
+   Frost:        #8fbcbb  #88c0d0  #81a1c1  #5e81ac
+   Aurora:       #bf616a  #d08770  #ebcb8b  #a3be8c  #b48ead
+*/
+
+.media-player-container {
+  background-color: #2e3440;
+  border-radius: 16px;
+  border: 1px solid #4c566a;
+}
+
+.album-art-container {
+  min-height: 260px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #3b4252;
+  border-radius: 14px 14px 0 0;
+}
+
+.overlay {
+  background-image: linear-gradient(to bottom, transparent, rgba(46, 52, 64, 0.96));
+  padding: 20px;
+  min-height: 260px;
+  border-radius: 14px 14px 0 0;
+}
+
+.artist {
+  color: #d8dee9;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.title {
+  color: #eceff4;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.controls-container {
+  background-color: #2e3440;
+  padding: 10px 20px 20px 20px;
+  border-radius: 0 0 16px 16px;
+}
+
+.like-btn {
+  background-color: transparent;
+  color: #4c566a;
+  font-size: 16px;
+  border-radius: 100px;
+}
+
+.like-btn:hover {
+  color: #bf616a;
+}
+
+.progress-bar trough {
+  background-color: #434c5e;
+  border-radius: 40px;
+  min-height: 6px;
+}
+
+.progress-bar highlight {
+  background-color: #88c0d0;
+  border-radius: 40px 0 0 40px;
+}
+
+.progress-bar slider {
+  background-color: #eceff4;
+  border-radius: 100px;
+  min-width: 12px;
+  min-height: 12px;
+}
+
+.time-row {
+  color: #4c566a;
+  font-size: 11px;
+  margin: 4px 0 10px 0;
+}
+
+.time-current {
+  color: #81a1c1;
+}
+
+.time-total {
+  color: #4c566a;
+}
+
+.control-btn {
+  background-color: transparent;
+  color: #d8dee9;
+  font-size: 22px;
+  border-radius: 100px;
+  padding: 4px 8px;
+}
+
+.control-btn:hover {
+  color: #88c0d0;
+  background-color: #3b4252;
+}
+
+.control-btn.play-pause {
+  background-color: #5e81ac;
+  color: #eceff4;
+  padding: 4px 18px;
+  font-size: 24px;
+}
+
+.control-btn.play-pause:hover {
+  background-color: #81a1c1;
+}
+
+.control-btn.shuffle,
+.control-btn.repeat {
+  color: #4c566a;
+  font-size: 18px;
+}
+
+.control-btn.shuffle:hover,
+.control-btn.repeat:hover {
+  color: #8fbcbb;
+  background-color: #3b4252;
+}

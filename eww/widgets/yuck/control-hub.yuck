@@ -1,0 +1,73 @@
+(defpoll hub_hour :interval "1s" "date '+%H'")
+(defpoll hub_min :interval "1s" "date '+%M'")
+(defpoll hub_daydate :interval "1m" "date '+%A, %d %B' | awk '{printf \"%s %s %s\\n\", $1, $2, tolower($3)}'")
+(defpoll hub_weather_icon :interval "15m" "bash -lc \"curl -fsS --max-time 3 'https://wttr.in/?format=%c' 2>/dev/null || echo ''\"")
+(defpoll hub_weather_temp :interval "15m" "bash -lc \"curl -fsS --max-time 3 'https://wttr.in/?format=%t' 2>/dev/null | sed -E 's/[^0-9-]//g' || echo '--'\"")
+(defpoll hub_weather_desc :interval "15m" "bash -lc \"curl -fsS --max-time 3 'https://wttr.in/?format=%C' 2>/dev/null | tr '[:upper:]' '[:lower:]' || echo 'cloudy'\"")
+
+(defpoll hub_volume :interval "1s" "~/.config/eww/scripts/dashboard_get_volume.sh")
+(defpoll hub_brightness :interval "1s" "brightnessctl -m | cut -d, -f4 | tr -d '%'")
+(defvar hub_config_open false)
+
+(defwindow control-hub
+  :monitor 0
+  :namespace "eww-dashboard"
+  :geometry (geometry :x "10px"
+                      :y "58px"
+                      :width "392px"
+                      :anchor "top left")
+  :stacking "overlay"
+  :windowtype "dialog"
+  :wm-ignore false
+  (control-hub-widget))
+
+(defwidget control-hub-widget []
+  (box :class "dashboard" :orientation "v" :space-evenly false
+    (box :class "dash-top" :space-evenly false :halign "fill" :valign "center"
+      (box :class "pfp-box"
+        (image :class "pfp"
+               :path "/home/shivmexe/Pictures/icon/icon2.png"
+               :image-width 84
+               :image-height 84))
+      (box :class "middle-strip" :hexpand true
+        (box :class "middle-weather" :orientation "v" :space-evenly false
+          (box :class "middle-weather-top" :space-evenly false
+            (label :class "middle-weather-icon" :text hub_weather_icon)
+            (label :class "middle-weather-temp" :text hub_weather_temp))
+          (label :class "middle-weather-desc" :text hub_weather_desc)))
+      (box :class "time-block" :orientation "v" :space-evenly false :hexpand true :halign "end"
+        (box :space-evenly false :halign "end"
+          (label :class "time-hour" :text hub_hour :xalign 1)
+          (label :class "time-min" :text ":${hub_min}" :xalign 1))
+        (label :class "date-day" :text hub_daydate :xalign 1)))
+
+    (box :class "divider")
+
+    (box :class "sliders-block" :orientation "v" :space-evenly false
+      (box :class "slider-row" :space-evenly false
+        (label :class "slider-icon" :text "󰕾")
+        (scale :value hub_volume :min 0 :max 150 :draw-value false
+               :onchange "~/.config/eww/scripts/dashboard_set_volume.sh {}"))
+      (box :class "slider-row" :space-evenly false
+        (label :class "slider-icon" :text "󰃟")
+        (scale :value hub_brightness :min 1 :max 100 :draw-value false
+               :onchange "brightnessctl set {}%"))
+      (box :class "slider-row slider-disabled" :space-evenly false
+        (label :class "slider-icon" :text "󰌌")
+        (scale :value 0 :min 0 :max 100 :draw-value false)))
+
+    (box :class "divider")
+
+    (revealer :transition "slideup" :duration "200ms" :reveal hub_config_open
+      (box :class "config-menu" :orientation "v" :space-evenly false
+        (button :class "config-item" :onclick "bash ~/.config/eww/scripts/dashboard_config.sh hyprland; eww update hub_config_open=false" "Hyprland config")
+        (button :class "config-item" :onclick "bash ~/.config/eww/scripts/dashboard_config.sh waybar; eww update hub_config_open=false" "Waybar config")
+        (button :class "config-item" :onclick "bash ~/.config/eww/scripts/dashboard_config.sh rofi; eww update hub_config_open=false" "Rofi config")
+        (button :class "config-item" :onclick "bash ~/.config/eww/scripts/dashboard_config.sh eww-yuck; eww update hub_config_open=false" "Eww yuck")
+        (button :class "config-item" :onclick "bash ~/.config/eww/scripts/dashboard_config.sh eww-scss; eww update hub_config_open=false" "Eww scss")))
+
+    (box :class "buttons-row" :space-evenly false
+      (button :class "quick-btn" :onclick "/home/shivmexe/.config/rofi/clipboard/dashboard_clipboard.sh" "")
+      (button :class "quick-btn" :onclick "notify-send 'AI' 'Placeholder for your future AI action.'" "󰚩")
+      (button :class "quick-btn" :onclick "/home/shivmexe/.config/rofi/settings/dashboard_settings_menu.sh" "")
+      (button :class "quick-btn" :onclick "~/.config/eww/scripts/dashboard_update.sh" "󰚰"))))

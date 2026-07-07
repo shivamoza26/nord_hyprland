@@ -16,7 +16,7 @@
 
   all: unset;
   font-size: 14px;
-  font-family: "Caskaydia Mono Nerd Font 10";
+  font-family: "Caskaydia Mono Nerd Font 13";
   transition: 200ms;
 
 }
@@ -28,7 +28,7 @@
 }
 
 .floating-notifications.background .notification-row .notification-background {
-  background: alpha(@background, 0.7);
+  background: @background;
   backdrop-filter: blur(14px);
   box-shadow: 0 0 8px 0 rgba(0,0,0,.6);
   border: 1px solid @selected;
@@ -109,3 +109,4 @@
 .notification.normal progress {
   background-color: @selected;
 }
+

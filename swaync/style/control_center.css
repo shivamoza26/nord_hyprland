@@ -1,7 +1,7 @@
 @define-color text            @foreground;
-@define-color background-alt  alpha(@color1, .7);
+@define-color background-alt  @color1;
 @define-color selected        @color6;
-@define-color hover           alpha(@selected, .7);
+@define-color hover           @selected;
 @define-color urgent          @color2;
 
 * {
@@ -9,7 +9,7 @@
 
   all: unset;
   font-size: 14px;
-  font-family: "Caskaydia Mono Nerd Font 10";
+  font-family: "Caskaydia Mono Nerd Font 13";
   transition: 200ms;
 
 }
@@ -22,7 +22,7 @@
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
 .control-center {
-  background: alpha(@background, 0.7);
+  background: @background;
   border-radius: 24px;
   border: 1px solid @selected;
   box-shadow: 0 0 10px 0 rgba(0,0,0,.6);
@@ -53,7 +53,7 @@
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
-  background: alpha(@selected, .7);
+  background: @selected;
   color: @text;
   border-radius: 12px;
   margin: 6px;
@@ -179,26 +179,6 @@ progressbar {
   border-radius: 6px;
 }
 
-  /* Buttons menu */
-.widget-buttons-grid {
-  font-size: x-large;
-  padding: 6px 2px;
-  margin: 6px;
-  border-radius: 12px;
-  background: @background-alt;
-}
-
-.widget-buttons-grid>flowbox>flowboxchild>button {
-  margin: 4px 10px;
-  padding: 6px 12px;
-  background: transparent;
-  border-radius: 8px;
-}
-
-.widget-buttons-grid>flowbox>flowboxchild>button:hover {
-  background: @hover;
-}
-
 /* Volume */
 .widget-volume {
   background: @background;
@@ -207,3 +187,4 @@ progressbar {
   margin: 6px;
   border-radius: 6px;
 }
+

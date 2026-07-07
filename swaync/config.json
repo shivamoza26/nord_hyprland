@@ -36,13 +36,7 @@
       "app-name": "Spotify"
     }
   },
-  "widgets": [
-    "label",
-    "buttons-grid",
-    "title",
-    "dnd",
-    "notifications"
-  ],
+  "widgets": ["label", "title", "dnd", "notifications"],
   "widget-config": {
     "title": {
       "text": "Notifications",
@@ -59,30 +53,6 @@
     "volume": {
       "label": "󰕾",
       "show-per-app": true
-    },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": " ",
-          "command": "amixer set Master toggle"
-        },
-        {
-          "label": "",
-          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-        },
-        {
-          "label": " ",
-          "command": "nm-connection-editor"
-        },
-        {
-          "label": "󰂯",
-          "command": "blueman-manager"
-        },
-        {
-          "label": "󰏘",
-          "command": "nwg-look"
-        }
-      ]
     }
   }
 }

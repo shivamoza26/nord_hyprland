@@ -4,7 +4,7 @@
   // --- LOGO SETTINGS ---
   "logo": {
     "type": "command-raw",
-    "source": "pokemon-colorscripts-go --no-title",
+    "source": "pokemon-colorscripts-go --shiny --no-title",
     "padding": {
       "top": 2,
       "left": 2,

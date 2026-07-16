@@ -50,3 +50,9 @@ hl.config({
 		force_zero_scaling = true,
 	},
 })
+
+hl.config({
+	input = {
+		kb_options = "caps:swapescape",
+	},
+})

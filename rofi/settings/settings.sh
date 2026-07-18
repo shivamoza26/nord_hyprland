@@ -61,4 +61,4 @@ if [[ ! -e "${target}" ]]; then
 fi
 
 #Open in Neovim
-kitty nvim "${target}"
+kitty --directory "$target" nvim .

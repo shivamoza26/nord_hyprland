@@ -4,7 +4,7 @@
 configuration {
     font: "Caskaydia Mono Nerd 13";
     show-icons: false;
-    display-drun: "⚙";
+    display-drun: "";
 }
 
 * {

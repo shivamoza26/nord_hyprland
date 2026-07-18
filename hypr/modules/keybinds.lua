@@ -1,10 +1,12 @@
 --apps
 
-local menu = "~/.config/rofi/launcher/launcher.sh"
-local settings = "~/.config/rofi/settings/settings.sh"
-local wallpaper = "~/.config/rofi/Wallpaper/wallpaper.sh"
-local bootmenu = "~/.config/rofi/powermenu/powermenu.sh"
+local app_menu = "~/.config/rofi/launcher/launcher.sh"
+local settings_menu = "~/.config/rofi/settings/settings.sh"
+local wallpaper_menu = "~/.config/rofi/Wallpaper/wallpaper.sh"
+local boot_menu = "~/.config/rofi/powermenu/powermenu.sh"
 local clipboard = "~/.config/rofi/clipboard/clipboard.sh"
+local projects_menu = "~/.config/rofi/projects/projects.sh"
+
 local terminal = "kitty"
 local fileManager = "thunar"
 local browser = "zen-browser"
@@ -22,19 +24,22 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 -- --- Core apps ---
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + PERIOD", hl.dsp.exec_cmd(terminal .. " -e " .. code_editor))
 hl.bind(mainMod .. " + XF86AudioPlay", hl.dsp.exec_cmd(music))
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(clipboard))
-hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.exec_cmd(wallpaper))
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(bootmenu))
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(settings))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(chat))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(office))
 hl.bind("XF86Presentation", hl.dsp.exec_cmd(acer_sense))
 hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.exec_cmd(terminal .. " -e btop"))
+
+-- --- Rofi menus---
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(app_menu))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(clipboard))
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.exec_cmd(wallpaper_menu))
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(boot_menu))
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd(settings_menu))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(projects_menu))
 
 -- --- Window management ---
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
